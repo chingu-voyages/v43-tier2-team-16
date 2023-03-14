@@ -1,4 +1,5 @@
 import logo from './static/images/svg/logo.svg';
+import Nav from './layout/Nav'
 
 function App() {
   return (
