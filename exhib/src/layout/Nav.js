@@ -1,18 +1,29 @@
-import Home from '../pages/LandingPage/Home';
-import About from '../pages/AboutPage/About';
-import Project from '../pages/Projects/Project';
-import Login from '../pages/Profile/Login';
-import Signup from '../pages/Profile/Signup';
+import './nav.css'
+import { useState } from 'react';
 
 function Nav() {
+  const [activeNav, setActiveNav] = useState(false);
+  var buttonText = activeNav ? 'close' : 'open'
+
+  const handleNavMenu = () => {
+    setActiveNav(!activeNav);
+  }
+
   return (
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/profile">Add Project</a></li>
-        
-      </ul>
+    <nav className={`navbar ${activeNav ? 'active' : ''}`}>
+      <div className='container'>
+        <div className='nav-brand-wrapper'>
+          <p className='h2 mb-0'>Exhib</p>
+        </div>
+        <button className='nav-trigger d-block d-lg-none' onClick={handleNavMenu}>
+          {buttonText}
+        </button>
+        <ul className='nav-menu d-flex align-items-center justify-content-center flex-column flex-lg-row'>
+          <li className='link'><a href='/'>Home</a></li>
+          <li className='link mx-4 my-5 my-lg-0'><a href='/about'>About</a></li>
+          <li><a href='/profile'>Add Project</a></li>
+        </ul>
+      </div>
     </nav>
   );
 }
