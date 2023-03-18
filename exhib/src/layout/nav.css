@@ -1,0 +1,58 @@
+html {
+    margin-top: 80px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+}
+
+.navbar .nav-menu {
+    background-color: azure;
+    padding-left: unset;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    transform: translateX(20%);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
+    list-style: none;
+}
+
+.navbar.active .nav-menu {
+    opacity: 1;
+    transform: unset;
+}
+
+.nav-trigger {
+    z-index: 3;
+}
+
+.navbar a {
+    padding: 5px;
+}
+
+.navbar .link {
+
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-menu {
+        background-color: transparent;
+        position: relative;
+        float: right;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 0;
+        opacity: 1;
+        height: unset;
+        width: unset;
+        transform: unset;
+    }
+}
