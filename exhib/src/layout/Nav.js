@@ -15,7 +15,7 @@ function Nav() {
         <div className='nav-brand-wrapper'>
           <p className='h2 mb-0'>Exhib</p>
         </div>
-        <button className='nav-trigger d-block d-lg-none' onClick={handleNavMenu}>
+        <button className='nav-trigger d-block d-lg-none m-0 ml-auto' onClick={handleNavMenu}>
           {buttonText}
         </button>
         <ul className='nav-menu d-flex align-items-center justify-content-center flex-column flex-lg-row'>
