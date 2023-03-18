@@ -1,0 +1,25 @@
+form{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap:1rem;
+  width:50%;
+  margin: 0 auto;
+  
+}
+button{
+  width:7rem;
+  margin: 0 auto;
+}
+input{
+  margin: 0 auto;
+  text-align: center;
+}
+.projects h1{
+text-align: center;
+}
+textarea{
+  text-align: center;
+  padding-top: 2rem;
+}
