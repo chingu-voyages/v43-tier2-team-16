@@ -28,7 +28,7 @@ const Signup = () => {
             registerName,
             registerEmail,
          });
-         navigate("/");
+         navigate("/profile");
       } catch (err) {
          console.log(err.message);
       }
