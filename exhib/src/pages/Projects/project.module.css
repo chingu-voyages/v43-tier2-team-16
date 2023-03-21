@@ -23,3 +23,16 @@ textarea{
   text-align: center;
   padding-top: 2rem;
 }
+.images_container{
+  display: flex;
+  justify-content: center;
+  gap:2rem;
+  text-align: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+img{
+  width:30rem;
+  height: 20rem;
+}
