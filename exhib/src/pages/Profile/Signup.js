@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../../firebase-config";
 import { doc, setDoc } from "@firebase/firestore";
 import "./login.css";
+import { toast, ToastContainer } from 'react-toastify';
 
 const Signup = () => {
    const [registerName, setRegisterName] = useState("");
@@ -28,9 +29,11 @@ const Signup = () => {
             registerName,
             registerEmail,
          });
+         toast.success('You Have Successfully Registered .')
          navigate("/profile");
       } catch (err) {
          console.log(err.message);
+         toast.error('Wrong details');
       }
    };
 
@@ -79,10 +82,14 @@ const Signup = () => {
                   OR
                </h2>
             </form>
+            <ToastContainer />
             <p>
                Have an account ? <Link to="/login"> Login </Link>
             </p>
          </div>
+        
+  
+   
       </div>
    );
 };
