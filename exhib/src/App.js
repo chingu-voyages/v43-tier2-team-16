@@ -7,6 +7,7 @@ import Signup from './pages/Profile/Signup'
 import Profile from './pages/Profile/Profile'
 import WithoutNav from './layout/WithoutNav'
 import WithNav from './layout/WithNav'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
