@@ -2,13 +2,15 @@ import React, { useContext } from "react";
 import classes from "../Projects/project.module.css";
 import { db, storage } from "../../firebase-config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-// import { v4 } from 'uuid'
+import { v4 as uuid } from "uuid";
 // import Form from "../../layout/Form";
-import { doc, setDoc } from "@firebase/firestore";
+import { arrayUnion, doc, setDoc, updateDoc } from "@firebase/firestore";
 import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router";
 
 const Project = () => {
    const { currentUser } = useContext(AuthContext);
+   const navigate = useNavigate();
    //  const [imageUpload, setImageUpload] = useState(null);
    // const [url, setUrl]= useState('')
    //  const [imageList, setImageList] = useState([]);
@@ -40,7 +42,7 @@ const Project = () => {
             getDownloadURL(imageRef).then(async url => {
                try {
                   //  setImageList(prev => [...prev, url]);
-                  await setDoc(doc(db, "projects", currentUser.uid), {
+                  await setDoc(doc(db, "projects", uuid()), {
                      uid: currentUser.uid,
                      developer: currentUser.displayName,
                      projectName,
@@ -48,6 +50,16 @@ const Project = () => {
                      stacks,
                      photoURL: url,
                      description: descr,
+                  });
+                  await updateDoc(doc(db, "users", currentUser.uid), {
+                     projects: arrayUnion({
+                        developer: currentUser.displayName,
+                        projectName,
+                        liveSite,
+                        stacks,
+                        photoURL: url,
+                        description: descr,
+                     }),
                   });
                } catch (err) {
                   console.log(err);
@@ -57,6 +69,7 @@ const Project = () => {
       } catch (err) {
          console.log(err);
       }
+      navigate("/");
    };
    //  useEffect(() => {
    //     listAll(imageListRef).then(response => {
