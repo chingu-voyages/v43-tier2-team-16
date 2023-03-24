@@ -8,6 +8,7 @@ import Profile from './pages/Profile/Profile'
 import WithoutNav from './layout/WithoutNav'
 import WithNav from './layout/WithNav'
 import 'react-toastify/dist/ReactToastify.css'
+import ProjectInfo from './pages/Projects/ProjectInfo/ProjectInfo'
 
 function App() {
   return (
@@ -20,7 +21,10 @@ function App() {
         <Route element={<WithNav />}>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
-          <Route path='/project' element={<Project />} />
+          <Route path='/project'>
+            <Route index element={<Project />} />
+            <Route path=':projectId' element={<ProjectInfo />} />
+          </Route>
           <Route path='/profile' element={<Profile />} />
         </Route>
       </Routes>
