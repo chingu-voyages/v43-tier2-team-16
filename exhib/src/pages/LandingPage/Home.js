@@ -1,91 +1,96 @@
-import React from "react";
-import classes from "../LandingPage/home_module.css";
-import "./home_module.css";
-import { useState, useEffect } from "react";
-import Pagination from "./Pagination";
-import { collection, onSnapshot } from "@firebase/firestore";
-import { db } from "../../firebase-config";
+import React from 'react'
+import classes from '../LandingPage/home_module.css'
+import './home_module.css'
+import { useState, useEffect } from 'react'
+import Pagination from './Pagination'
+import { collection, onSnapshot } from '@firebase/firestore'
+import { db } from '../../firebase-config'
+import { useAuthContext } from '../../context/AuthContext'
+import { Link } from 'react-router-dom'
 
 function Home() {
-   const [currentPage, setCurrentPage] = useState(1);
-   const [objectsPerPage] = useState(4);
-   const [projects, setProjects] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1)
+  const [objectsPerPage] = useState(4)
+  const [projects, setProjects] = useState([])
 
-   const indexOfLastObject = currentPage * objectsPerPage;
-   const indexOfFirstObject = indexOfLastObject - objectsPerPage;
+  const { setUsersData } = useAuthContext()
 
-   //  const generateImgs = () => {
-   //     const images = [];
+  const indexOfLastObject = currentPage * objectsPerPage
+  const indexOfFirstObject = indexOfLastObject - objectsPerPage
 
-   //     for (let i = 0; i < 50; i++) {
-   //        images.push(`https://source.unsplash.com/random/400x400?sig=${i}`);
-   //     }
+  //  const generateImgs = () => {
+  //     const images = [];
 
-   //     const currentObjects = images.slice(
-   //        indexOfFirstObject,
-   //        indexOfLastObject
-   //     );
+  //     for (let i = 0; i < 50; i++) {
+  //        images.push(`https://source.unsplash.com/random/400x400?sig=${i}`);
+  //     }
 
-   //     return currentObjects.map((image, index) => (
-   //        <img src={image} alt="" key={index}></img>
-   //     ));
-   //  };
+  //     const currentObjects = images.slice(
+  //        indexOfFirstObject,
+  //        indexOfLastObject
+  //     );
 
-   useEffect(() => {
-      const getProjects = () => {
-         const q = collection(db, "projects");
-         const unsub = onSnapshot(q, querySnapshot => {
-            // const projects = [];
-            const proj = querySnapshot.docs.map(document => {
-               return { id: document.id, ...document.data() };
-            });
-            console.log(proj);
-            setProjects(proj);
-            // });
-         });
+  //     return currentObjects.map((image, index) => (
+  //        <img src={image} alt="" key={index}></img>
+  //     ));
+  //  };
 
-         return () => {
-            unsub();
-         };
-      };
+  useEffect(() => {
+    const getProjects = () => {
+      const q = collection(db, 'projects')
+      const unsub = onSnapshot(q, querySnapshot => {
+        // const projects = [];
+        const proj = querySnapshot.docs.map(document => {
+          return { id: document.id, ...document.data() }
+        })
+        console.log(proj)
+        setProjects(proj)
+        setUsersData(proj)
+        // });
+      })
 
-      getProjects();
-   }, []);
+      return () => {
+        unsub()
+      }
+    }
 
-   const handleKeyPress = event => {
-      console.log(event.target.value);
-   };
+    getProjects()
+  }, [setUsersData])
 
-   const handlePageClick = event => {
-      const newCurrentPage = event.selected + 1;
-      setCurrentPage(newCurrentPage);
-   };
+  const handleKeyPress = event => {
+    console.log(event.target.value)
+  }
 
-   return (
-      <div className="home">
-         <h1 className="title">Projects gallery</h1>
-         <input
-            type="text"
-            className="searchbar"
-            placeholder="🔍 Search"
-            onKeyDown={handleKeyPress}
-         />
-         {projects.map(project => (
-            <div key={project.id}>
-               <p>{project.developer}</p>
-               <img src={project.photoURL} alt="" />
-            </div>
-         ))}
-         {/* <div className="projects-container">{generateImgs()}</div> */}
-         <div className="pagination">
-            <Pagination
-               objectsTotal={50}
-               objectsPerPage={objectsPerPage}
-               handlePageClick={handlePageClick}
-            />
-         </div>
+  const handlePageClick = event => {
+    const newCurrentPage = event.selected + 1
+    setCurrentPage(newCurrentPage)
+  }
+
+  return (
+    <div className='home'>
+      <h1 className='title'>Projects gallery</h1>
+      <input
+        type='text'
+        className='searchbar'
+        placeholder='🔍 Search'
+        onKeyDown={handleKeyPress}
+      />
+      {projects.map(project => (
+        <Link key={project.id} to={`/project/${project.uid}`}>
+          <p>{project.developer}</p>
+          <img src={project.photoURL} alt='' />
+        </Link>
+      ))}
+      {/* <div className="projects-container">{generateImgs()}</div> */}
+      <div className='pagination'>
+        <Pagination
+          objectsTotal={50}
+          objectsPerPage={objectsPerPage}
+          handlePageClick={handlePageClick}
+        />
       </div>
-   );
+    </div>
+  )
 }
 
-export default Home;
+export default Home

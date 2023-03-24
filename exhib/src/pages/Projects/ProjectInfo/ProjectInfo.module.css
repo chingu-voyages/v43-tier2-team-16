@@ -1,0 +1,141 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 85vw;
+  padding-top: 4vw;
+  gap: 5vw;
+}
+
+.container img {
+  width: 40vw;
+  height: auto;
+  object-fit: contain;
+}
+
+.container section {
+  flex: 1;
+}
+
+.container section h2 {
+  font-size: 2.5vw;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.container section h5 {
+  font-size: 1.05vw;
+  font-size: 500;
+}
+
+.container section h5 span {
+  font-size: 1.2vw;
+  font-weight: 600;
+  opacity: 0.75;
+  text-transform: capitalize;
+  font-style: italic;
+}
+
+.container section p {
+  margin: 0;
+}
+
+.container section .description {
+  padding: 2vw 0;
+  font-weight: 500;
+}
+
+.container section > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vw;
+}
+
+.container section > div p {
+  font-size: 1.05vw;
+  font-weight: 600;
+  padding: 0.5vw 1vw;
+  border-radius: 3vw;
+  color: white;
+  text-transform: uppercase;
+}
+
+.container section a {
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.container section a button {
+  padding-top: 0.5vw;
+  border: none;
+  background-color: transparent;
+  font-size: 0.95vw;
+  font-weight: 400;
+  opacity: 0.75;
+  transition: 0.3s all;
+  width: 100%;
+}
+
+.container section a:hover button {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    justify-content: unset;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 2vw;
+    gap: 4vw;
+  }
+
+  .container img {
+    width: 100%;
+  }
+
+  .container section {
+    padding: 0 5vw;
+  }
+
+  .container section h2 {
+    font-size: 8vw;
+  }
+
+  .container section h5 {
+    font-size: 3.5vw;
+    margin-top: -1vw;
+  }
+
+  .container section h5 span {
+    font-size: 4.5vw;
+  }
+
+  .container section .description {
+    padding: 4vw 0;
+    font-weight: 500;
+    font-size: 4vw;
+  }
+
+  .container section > div {
+    padding-top: 4vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vw;
+  }
+
+  .container section > div p {
+    font-size: 3vw;
+    padding: 1.5vw 4vw;
+    border-radius: 6vw;
+  }
+
+  .container section a button {
+    padding-top: 2vw;
+    font-size: 3vw;
+  }
+
+  .container section a:focus button {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
