@@ -35,7 +35,7 @@ const Signup = () => {
          navigate("/profile");
       } catch (err) {
          console.log(err.message);
-         toast.error("Wrong details");
+         toast.error("Incorrect details, Kindly signup if you don not have an account");
       }
    };
 
