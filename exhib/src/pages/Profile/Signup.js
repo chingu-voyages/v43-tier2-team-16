@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../../firebase-config";
 import { doc, setDoc } from "@firebase/firestore";
-import "./login.css";
+import "./login.scss";
 import { toast, ToastContainer } from "react-toastify";
 
 const Signup = () => {
