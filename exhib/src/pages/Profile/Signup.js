@@ -35,7 +35,7 @@ const Signup = () => {
          navigate("/profile");
       } catch (err) {
          console.log(err.message);
-         toast.error("Incorrect details, Kindly signup if you don not have an account");
+         toast.error("Error, Kindly follow signup instructions");
       }
    };
 
@@ -76,18 +76,24 @@ const Signup = () => {
                         setRegisterPassword(event.target.value);
                      }}
                   />
+                  <span>minimum 6 characters</span>
                </div>
+               
                <button type="submit" onClick={register}>
                   Submit
                </button>
-               <h2 align="center" className="or">
+               
+               {/* <h2 align="center" className="or">
                   OR
-               </h2>
+               </h2> */}
+               
             </form>
-            <ToastContainer />
-            <p>
+            <h6 >
                Have an account ? <Link to="/login"> Login </Link>
-            </p>
+            </h6>
+          
+            <ToastContainer />
+            
          </div>
       </div>
    );
