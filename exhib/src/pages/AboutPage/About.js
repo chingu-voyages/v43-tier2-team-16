@@ -30,7 +30,7 @@ function About() {
         </div>
         <div className="col-12 col-lg-6 d-flex flex-column justify-content-lg-center order-1 order-lg-2">
           <h2>Connect with Other Developers</h2>
-          <p>Exhib also provides a great opportunity to connect with other developers in the community. You can discover other like-minded developers and get in touch with them through the contant info they provide. Our platform encourages networking and collaboration, allowing you to build relationships with other developers and expand your knowledge and skills.</p>
+          <p>Exhib also provides a great opportunity to connect with other developers in the community. You can discover other like-minded developers and get in touch with them through the contact info they provide. Our platform encourages networking and collaboration, allowing you to build relationships with other developers and expand your knowledge and skills.</p>
         </div>
       </section>
 

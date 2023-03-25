@@ -17,6 +17,7 @@
 
 .form {
    flex-basis: 100vw;
+   margin:0 auto
 }
 
 .signIn {
@@ -60,6 +61,15 @@
    font-weight: bold;
    margin-top: 1.5rem;
    border-radius: 8px;
+}
+
+h6{
+   text-align: center;
+   margin-top: 2rem;
+}
+span{
+   font-size: 13px;
+   text-align: center;
 }
 
 @media (min-width: 542px) {

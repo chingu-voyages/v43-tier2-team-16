@@ -19,7 +19,7 @@ const Login = () => {
       navigate("/profile");
     } catch (error) {
       console.log(error.message);
-      toast.error("Wrong details");
+      toast.error("Incorrect details, Kindly signup if you don not have an account");
     }
   };
 
