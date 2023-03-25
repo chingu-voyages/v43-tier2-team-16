@@ -9,6 +9,8 @@ import WithoutNav from './layout/WithoutNav'
 import WithNav from './layout/WithNav'
 import 'react-toastify/dist/ReactToastify.css'
 import ProjectInfo from './pages/Projects/ProjectInfo/ProjectInfo'
+import Error404 from './pages/ErrorPage/Error404'
+import ProtectedRoute from './layout/ProtectedRoute'
 
 function App() {
   return (
@@ -21,11 +23,11 @@ function App() {
         <Route element={<WithNav />}>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
-          <Route path='/project'>
-            <Route index element={<Project />} />
-            <Route path=':projectId' element={<ProjectInfo />} />
-          </Route>
+
+          <Route path='/project' element={<ProtectedRoute><Project /></ProtectedRoute>}/>
+          <Route path='/project/:projectId' element={<ProjectInfo />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='*' element={<Error404 />} />
         </Route>
       </Routes>
     </>
