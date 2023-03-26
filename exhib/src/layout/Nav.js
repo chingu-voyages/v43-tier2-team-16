@@ -1,16 +1,19 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase-config";
-import "./nav.css";
+import "./nav.scss";
 
 function Nav() {
    const [activeNav, setActiveNav] = useState(false);
-   var buttonText = activeNav ? "close" : "open";
    const { currentUser } = useContext(AuthContext);
    let navigate = useNavigate();
    //  console.log(currentUser);
+
+   useEffect(() => {
+      document.body.classList.toggle('no-scroll', activeNav);
+   },[activeNav])
 
    const handleNavMenu = () => {
       setActiveNav(!activeNav);
@@ -26,32 +29,35 @@ function Nav() {
       <nav className={`navbar ${activeNav ? "active" : ""}`}>
          <div className="container">
             <div className="nav-brand-wrapper">
-               <p className="h2 mb-0">Exhib</p>
+               <p className="h2 mb-0">
+                  <Link to="/">Exhib</Link>
+               </p>
             </div>
-            <button
-               className="nav-trigger d-block d-lg-none m-0 ml-auto"
-               onClick={handleNavMenu}
-            >
-               {buttonText}
+            <button className="menu-burger d-block d-lg-none m-0 ml-auto btn-trans" onClick={handleNavMenu}>
+               <span></span>
+               <span></span>
+               <span></span>
             </button>
             <ul className="nav-menu d-flex align-items-center justify-content-center flex-column flex-lg-row">
                <li className="link">
                   <Link to="/">Home</Link>
                </li>
-               <li className="link mx-4 my-5 my-lg-0">
+               <li className="link">
                   <Link to="/about">About</Link>
                </li>
-               <li>
+               <li className="link">
                   <Link to={currentUser ? "/profile" : "/login"}>
                      Add Project
                   </Link>
                </li>
+               {currentUser && (
+                  <li className="link">
+                        <button className="btn btn-secondary" onClick={signUserOut}>
+                           Log Out
+                        </button>
+                  </li>
+               )}
             </ul>
-            {currentUser && (
-               <div style={{ cursor: "pointer" }} onClick={signUserOut}>
-                  Logout
-               </div>
-            )}
          </div>
       </nav>
    );

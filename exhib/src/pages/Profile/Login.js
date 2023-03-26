@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase-config";
-import "./login.css";
+import "./login.scss";
 import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
@@ -27,7 +27,7 @@ const Login = () => {
     <div className="wrapper signIn">
       {/* <button className="login-google-btn">Sign In with Google</button> */}
       <div className="form">
-        <div className="heading">LOGIN</div>
+        <div className="heading">Log In</div>
         <form>
           <div>
             <label htmlFor="e-mail">E-Mail</label>
@@ -51,13 +51,13 @@ const Login = () => {
               }}
             />
           </div>
-          <button type="submit" onClick={login}>
+          <button className="btn btn-primary" type="submit" onClick={login}>
             Submit
           </button>
         </form>
         <ToastContainer />
-        <p>
-          Don't have an account ? <Link to="/signup"> Sign Up </Link>
+        <p className="text-center">
+          Don't have an account? <Link className="blue-link" to="/signup"> Sign Up </Link>
         </p>
       </div>
     </div>

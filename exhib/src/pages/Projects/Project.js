@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import classes from "../Projects/project.module.css";
+import "./project.scss";
 import { db, storage } from "../../firebase-config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 as uuid } from "uuid";
@@ -83,42 +83,46 @@ const Project = () => {
    //  }, []);
 
    return (
-      <section className={classes.projects}>
-         <h1>Kindly fill out the form to upload a project.</h1>
-         <div className={classes.form}>
+      <section className="new-project container">
+         <h1 className="text-center pt-5">New project</h1>
+         <div className="form-wrapper mt-5">
             <form onSubmit={handleUpload}>
-               <div>
+               <div className="input-wrapper">
                   <label htmlFor="project_name">Project Name:</label>
                   <input
                      type="text"
                      id="project_name"
-                     placeholder="project name"
                   />
                </div>
-               <div>
+               <div className="input-wrapper">
                   <label htmlFor="live_site_URL">Live site URL:</label>
                   <input
                      type="text"
                      id="live_site_URL"
-                     placeholder="Live site URL"
+                     placeholder="https://..."
                   />
                </div>
-               <div>
-                  <label htmlFor="stacks">Stacks used:</label>
-                  <input type="text" id="stacks" placeholder="stacks used" />
+               <div className="input-wrapper">
+                  <label htmlFor="stacks">Tools used:</label>
+                  <input type="text" id="stacks" placeholder='e.g. "HTML CSS JavaScript"' />
                </div>
-               <input type="file" />
+               <div className="file-input-wrapper d-flex flex-column flex-lg-row justify-content-center align-items-center">
+                  <label htmlFor="featured_image">Featured Image:</label>
+                  <input className="mw-100" type="file" id="featured_image" placeholder="Featured Image"/>
+               </div>
                {/* <button onClick={handleUploadImage}>Upload Image</button> */}
-               <textarea
-                  type="message"
-                  cols="20 "
-                  rows="10"
-                  placeholder="Give a short description of your work"
-               />
-               <button type="submit">Upload Project</button>
+               <div className="input-wrapper d-flex flex-column flex-lg-row justify-content-center">
+                  <label htmlFor="description">Short description:</label>
+                  <textarea
+                     id="description"
+                     type="message"
+                     rows="3"
+                  />
+               </div>
+               <button className="mt-5 btn btn-success" type="submit">Upload Project</button>
             </form>
          </div>
-         {/* <div className={classes.images_container}>
+         {/* <div className="images_container">
             {imageList.map((url, id) => {
                return <Form image={url} key={id} />;
             })}

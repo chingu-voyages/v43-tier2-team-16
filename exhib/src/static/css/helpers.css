@@ -1,0 +1,26 @@
+.btn-trans,
+.btn-trans:hover,
+.btn-trans:active,
+.btn-trans:focus {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: fit-content;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.btn-success {
+  padding: 10px 15px;
+  border-radius: 20px;
+}
+
+.blue-link {
+  color: #007bff;
+}
+
+.blue-link:hover {
+  color: #0056b3;
+}
