@@ -1,0 +1,60 @@
+.new-project {
+  .form-wrapper {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .input-wrapper {
+    margin-bottom: 20px;
+    input, textarea {
+      margin-left: 10px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      padding: 5px 0;
+      border-bottom: 1px solid black;
+      &::placeholder{
+        color: #77777780;
+      }
+    }
+    textarea{
+      padding: 0;
+      min-width: 300px;
+    }
+  }
+
+  .file-input-wrapper {
+    margin-bottom: 20px;
+    input {
+      margin-left: 10px;
+    }
+  }
+
+  button{
+    margin: 0 auto;
+  }
+  .projects h1{
+  text-align: center;
+  padding-top: 2rem;
+  }
+  .images_container{
+    display: flex;
+    justify-content: center;
+    gap:2rem;
+    text-align: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+}
+img{
+  width:30rem;
+  height: 20rem;
+}
+
+.btn-success {
+  padding: 10px 15px;
+  border-radius: 20px;
+}

@@ -7,7 +7,6 @@ import "./nav.scss";
 
 function Nav() {
    const [activeNav, setActiveNav] = useState(false);
-   var buttonText = activeNav ? "close" : "open";
    const { currentUser } = useContext(AuthContext);
    let navigate = useNavigate();
    //  console.log(currentUser);
