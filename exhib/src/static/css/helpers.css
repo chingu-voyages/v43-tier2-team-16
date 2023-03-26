@@ -11,3 +11,16 @@
 .no-scroll {
     overflow: hidden;
 }
+
+.btn-success {
+  padding: 10px 15px;
+  border-radius: 20px;
+}
+
+.blue-link {
+  color: #007bff;
+}
+
+.blue-link:hover {
+  color: #0056b3;
+}

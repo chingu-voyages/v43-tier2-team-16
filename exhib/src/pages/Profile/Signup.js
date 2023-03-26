@@ -42,7 +42,7 @@ const Signup = () => {
    return (
       <div className="wrapper signUp">
          <div className="form">
-            <div className="heading">CREATE AN ACCOUNT</div>
+            <div className="heading">Create an account</div>
             <form>
                <div>
                   <label htmlFor="name">Name</label>
@@ -66,7 +66,7 @@ const Signup = () => {
                      }}
                   />
                </div>
-               <div>
+               <div className="d-flex flex-column">
                   <label htmlFor="password">Password</label>
                   <input
                      type="password"
@@ -76,7 +76,7 @@ const Signup = () => {
                         setRegisterPassword(event.target.value);
                      }}
                   />
-                  <span>minimum 6 characters</span>
+                  <span className="text-left">minimum 6 characters</span>
                </div>
                
                <button type="submit" onClick={register}>
@@ -88,9 +88,9 @@ const Signup = () => {
                </h2> */}
                
             </form>
-            <h6 >
-               Have an account ? <Link to="/login"> Login </Link>
-            </h6>
+            <p className="text-center">
+               Have an account? <Link className="blue-link" to="/login">Log In</Link>
+            </p>
           
             <ToastContainer />
             

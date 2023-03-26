@@ -119,7 +119,7 @@ const Project = () => {
                      rows="3"
                   />
                </div>
-               <button class="mt-5 btn-success" type="submit">Upload Project</button>
+               <button className="mt-5 btn-success" type="submit">Upload Project</button>
             </form>
          </div>
          {/* <div className="images_container">

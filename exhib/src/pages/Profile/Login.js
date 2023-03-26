@@ -27,7 +27,7 @@ const Login = () => {
     <div className="wrapper signIn">
       {/* <button className="login-google-btn">Sign In with Google</button> */}
       <div className="form">
-        <div className="heading">LOGIN</div>
+        <div className="heading">Log In</div>
         <form>
           <div>
             <label htmlFor="e-mail">E-Mail</label>
@@ -56,8 +56,8 @@ const Login = () => {
           </button>
         </form>
         <ToastContainer />
-        <p>
-          Don't have an account ? <Link to="/signup"> Sign Up </Link>
+        <p className="text-center">
+          Don't have an account? <Link className="blue-link" to="/signup"> Sign Up </Link>
         </p>
       </div>
     </div>

@@ -1,5 +1,9 @@
-.signIn {
-   margin-inline: 1rem;
+.signIn, .signUp {
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0 15px;
 
    * {
       margin: 0;
@@ -35,7 +39,7 @@
    
    .form label {
       display: block;
-      margin: 1.25rem 0 1rem 0;
+      margin: 1.25rem 0 0.5rem;  
    }
    
    .form input {
@@ -56,19 +60,16 @@
       letter-spacing: 1px;
       border: none;
       display: block;
-      margin: 0 auto;
+      margin: 0 auto 2rem;
       font-weight: bold;
       margin-top: 1.5rem;
       border-radius: 8px;
    }
    
-   h6{
-      text-align: center;
-      margin-top: 2rem;
-   }
    span{
       font-size: 13px;
-      text-align: center;
+      text-align: left;
+      margin-top: 0.5rem;
    }
    
    @media (min-width: 542px) {
@@ -86,9 +87,6 @@
       }
       .form {
          flex-basis: auto;
-      }
-      .form input {
-         width: 250px;
       }
    }
    
