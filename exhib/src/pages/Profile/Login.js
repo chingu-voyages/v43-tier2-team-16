@@ -51,7 +51,7 @@ const Login = () => {
               }}
             />
           </div>
-          <button type="submit" onClick={login}>
+          <button className="btn btn-primary" type="submit" onClick={login}>
             Submit
           </button>
         </form>

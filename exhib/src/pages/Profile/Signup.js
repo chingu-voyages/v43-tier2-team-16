@@ -79,7 +79,7 @@ const Signup = () => {
                   <span className="text-left">minimum 6 characters</span>
                </div>
                
-               <button type="submit" onClick={register}>
+               <button className="btn btn-primary" type="submit" onClick={register}>
                   Submit
                </button>
                

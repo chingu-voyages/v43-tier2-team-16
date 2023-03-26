@@ -52,8 +52,8 @@ function Nav() {
                </li>
                {currentUser && (
                   <li className="link">
-                        <button className="btn-trans" onClick={signUserOut}>
-                           Logout
+                        <button className="btn btn-secondary" onClick={signUserOut}>
+                           Log Out
                         </button>
                   </li>
                )}

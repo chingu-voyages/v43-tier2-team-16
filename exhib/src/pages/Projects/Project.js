@@ -108,7 +108,7 @@ const Project = () => {
                </div>
                <div className="file-input-wrapper d-flex flex-column flex-lg-row justify-content-center align-items-center">
                   <label htmlFor="featured_image">Featured Image:</label>
-                  <input type="file" id="featured_image" placeholder="Featured Image"/>
+                  <input className="mw-100" type="file" id="featured_image" placeholder="Featured Image"/>
                </div>
                {/* <button onClick={handleUploadImage}>Upload Image</button> */}
                <div className="input-wrapper d-flex flex-column flex-lg-row justify-content-center">
@@ -119,7 +119,7 @@ const Project = () => {
                      rows="3"
                   />
                </div>
-               <button className="mt-5 btn-success" type="submit">Upload Project</button>
+               <button className="mt-5 btn btn-success" type="submit">Upload Project</button>
             </form>
          </div>
          {/* <div className="images_container">

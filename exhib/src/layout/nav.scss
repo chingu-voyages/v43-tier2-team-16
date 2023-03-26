@@ -78,6 +78,16 @@
             }
         }
     }
+
+    @media (max-width: 992px) {
+        .nav-menu {
+            .link button {
+                background-color: transparent;
+                border: none;
+                outline: none;
+            }        
+        }
+    }
     
     @media (min-width: 992px) {
         .nav-menu {
@@ -93,9 +103,14 @@
             width: unset;
             transform: unset;
             pointer-events: all;
-            .link, .link button {
+            .link {
                 margin: 0 5px;
                 color: black;
+                font-size: 20px;
+            }
+            .link button {
+                margin: 0 5px;
+                padding: 5px 10px;
                 font-size: 20px;
             }
         }
