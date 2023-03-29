@@ -9,10 +9,12 @@ export default function Pagination(props) {
 
     return (
         <ReactPaginate
+        className='pagination'
         breakLabel='...'
         nextLabel='next >'
         pageRangeDisplayed={3}
         pageCount={pageNumbers}
+        forcePage={props.currentPage - 1}
         onPageChange = {event=> props.handlePageClick(event)}
         previousLabel='< previous'
         containerClassName = {'pagination justify-content-center pagination-sm'}

@@ -1,96 +1,157 @@
-import React from 'react'
-import classes from '../LandingPage/home_module.css'
-import './home_module.css'
-import { useState, useEffect } from 'react'
-import Pagination from './Pagination'
-import { collection, onSnapshot } from '@firebase/firestore'
-import { db } from '../../firebase-config'
-import { useAuthContext } from '../../context/AuthContext'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import classes from '../LandingPage/home_module.css';
+import './home_module.css';
+import { useState, useEffect } from 'react';
+import Pagination from './Pagination';
+import { collection, onSnapshot } from '@firebase/firestore';
+import { db } from '../../firebase-config';
+import { useAuthContext } from '../../context/AuthContext';
+
+
 
 function Home() {
-  const [currentPage, setCurrentPage] = useState(1)
-  const [objectsPerPage] = useState(4)
-  const [projects, setProjects] = useState([])
+   const [currentPage, setCurrentPage] = useState(1);
+   const [objectsPerPage] = useState(4);
+   const [projects, setProjects] = useState([]);
+   const [search, setSearch] = useState("");
+   const [suggestions, setSuggestions] = useState([]);
+   const [showSuggestions, setShowSuggestions] = useState(false);
+   const [idToFind, setIdToFind] = useState("");
 
-  const { setUsersData } = useAuthContext()
+   const { setUsersData } = useAuthContext()
 
-  const indexOfLastObject = currentPage * objectsPerPage
-  const indexOfFirstObject = indexOfLastObject - objectsPerPage
+   const indexOfLastObject = currentPage * objectsPerPage
+   const indexOfFirstObject = indexOfLastObject - objectsPerPage
 
-  //  const generateImgs = () => {
-  //     const images = [];
+   const generateProjects = () => {
+         
+         const currentProjects = projects.slice(
+            indexOfFirstObject,
+            indexOfLastObject
+         ) 
+         
+         return currentProjects.map((project, index) => (
+            <div key={index} className="project" id={project.id + "1"}>
+               <img src={project.photoURL} alt=""></img>
+               <h4>{project.projectName}</h4>
+            </div>
+         ));
+   } 
 
-  //     for (let i = 0; i < 50; i++) {
-  //        images.push(`https://source.unsplash.com/random/400x400?sig=${i}`);
-  //     }
+   const findProject = (e) => {
 
-  //     const currentObjects = images.slice(
-  //        indexOfFirstObject,
-  //        indexOfLastObject
-  //     );
+      let projectIndex = 0;
 
-  //     return currentObjects.map((image, index) => (
-  //        <img src={image} alt="" key={index}></img>
-  //     ));
-  //  };
+      projects.forEach( (project, index) => {
+         if(project.id === e.target.id){
+            projectIndex = index;
+         };
+      });
 
-  useEffect(() => {
-    const getProjects = () => {
-      const q = collection(db, 'projects')
-      const unsub = onSnapshot(q, querySnapshot => {
-        // const projects = [];
-        const proj = querySnapshot.docs.map(document => {
-          return { id: document.id, ...document.data() }
-        })
-        console.log(proj)
-        setProjects(proj)
-        setUsersData(proj)
-        // });
+      setCurrentPage(Math.ceil((projectIndex + 1)/objectsPerPage));
+      setIdToFind(`${e.target.id + "1"}`)
+   }
+
+   useEffect(() => {
+
+      const elementToFind = document.getElementById(idToFind)
+      
+      if(elementToFind){
+         elementToFind.scrollIntoView({ behavior: 'smooth', block: "center", inline: "center"});
+      };
+
+   }, [idToFind])
+
+   useEffect(() => {
+      const getProjects = () => {
+         const q = collection(db, 'projects')
+         const unsub = onSnapshot(q, querySnapshot => {
+           // const projects = [];
+            const proj = querySnapshot.docs.map(document => {
+               return { id: document.id, ...document.data() }
+            })
+            console.log(proj)
+            setProjects(proj)
+            setUsersData(proj)
+           // });
+      })
+   
+         return () => {
+            unsub();
+         };
+      };
+      getProjects();
+   }, []);
+
+   useEffect( () => {
+
+      const searchWord = search.toLowerCase();
+      const tempSuggestions = [];
+
+      projects.forEach( project => {
+
+         const projectName = project.projectName.toLowerCase();
+         const containes = tempSuggestions.some( sugg => sugg.id === project.id)
+
+         if(!projectName.startsWith(searchWord) || containes){
+            return;
+         } else {
+               tempSuggestions.push(project);
+         };
       })
 
-      return () => {
-        unsub()
-      }
-    }
+      if(search !== ""){
+         setShowSuggestions(true);
+      } else setShowSuggestions(false);
 
-    getProjects()
-  }, [setUsersData])
+      setSuggestions(tempSuggestions);
 
-  const handleKeyPress = event => {
-    console.log(event.target.value)
-  }
+   }, [search])
 
-  const handlePageClick = event => {
-    const newCurrentPage = event.selected + 1
-    setCurrentPage(newCurrentPage)
-  }
+   const displaySuggestions = () => suggestions.map( (suggestion, i) => 
+      <div key={i} id={suggestion.id} className='suggestion' onClick={findProject}>
+         {suggestion.projectName}
+         <img src={suggestion.photoURL} alt="" className="search-img"></img>
+      </div>)
 
-  return (
-    <div className='home'>
-      <h1 className='title'>Projects gallery</h1>
-      <input
-        type='text'
-        className='searchbar'
-        placeholder='🔍 Search'
-        onKeyDown={handleKeyPress}
-      />
-      {projects.map(project => (
-        <Link key={project.id} to={`/project/${project.uid}`}>
-          <p>{project.developer}</p>
-          <img src={project.photoURL} alt='' />
-        </Link>
-      ))}
-      {/* <div className="projects-container">{generateImgs()}</div> */}
-      <div className='pagination'>
-        <Pagination
-          objectsTotal={50}
-          objectsPerPage={objectsPerPage}
-          handlePageClick={handlePageClick}
-        />
+   const handlePageClick = event => {
+      const newCurrentPage = event.selected + 1;
+      setCurrentPage(newCurrentPage);
+   };
+
+   const handleFocus = (e) => {
+      if(e.target.value === ""){
+         return;
+      } else setShowSuggestions(true);
+   }
+
+   return (
+      <div className='home'>
+         <h2 className='title'>Projects gallery</h2>
+         <input 
+            type="text" 
+            className="searchbar"
+            placeholder="🔍 Search"
+            value={search} 
+            onChange={(e) => setSearch(e.target.value)}
+            onFocus={handleFocus}
+            onBlur={()  => setTimeout(() => {setShowSuggestions(false)}, 200)}
+         />
+         <div className="projects-outer-container">
+            <div className={`suggestions ${showSuggestions ? "" : "hidden"}`}>
+               {displaySuggestions()}
+            </div>
+            <div className="projects-inner-container">
+               {generateProjects()}
+            </div>
+         </div>
+         <Pagination 
+               objectsTotal={projects.length} 
+               objectsPerPage={objectsPerPage} 
+               handlePageClick={handlePageClick}
+               currentPage={currentPage} />
       </div>
-    </div>
-  )
+   );
 }
 
-export default Home
+   export default Home;
