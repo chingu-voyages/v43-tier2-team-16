@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-import '../../static/css/bootstrap.min.css';
+import '../../../static/css/bootstrap.min.css';
 
 
 export default function Pagination(props) {
@@ -11,12 +11,12 @@ export default function Pagination(props) {
         <ReactPaginate
         className='pagination'
         breakLabel='...'
-        nextLabel='next >'
+        nextLabel='>>'
         pageRangeDisplayed={3}
         pageCount={pageNumbers}
         forcePage={props.currentPage - 1}
         onPageChange = {event=> props.handlePageClick(event)}
-        previousLabel='< previous'
+        previousLabel='<<'
         containerClassName = {'pagination justify-content-center pagination-sm'}
         pageClassName = {'page-item'}
         pageLinkClassName = {'page-link'}
