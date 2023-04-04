@@ -14,12 +14,13 @@ function ProjectDetails(){
             </div>
             <div className="project-about">
                 <h3>{data.projectName}</h3>
-                <p>About: {data.description}</p>
-                <p>Stack: {data.stacks}</p>
-                <p>Author: {data.developer}</p>
-                <div>Visit site: <a 
+                <p><span>About: </span>{data.description}</p>
+                <p><span>Stack: </span>{data.stacks}</p>
+                <p><span>Author: </span>{data.developer}</p>
+                <div className="demo">
+                    <a 
                     href={data.liveSite.includes("https://") ? data.liveSite : "https://" + data.liveSite} 
-                    target="_blank">{data.liveSite}</a>
+                    target="_blank"><button onClick={data.liveSite}>Live Demo</button></a>
                 </div>
             </div>
         </div>
