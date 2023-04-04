@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/LandingPage/Home'
+import ProjectDetails from './pages/LandingPage/components/ProjectDetails'
 import About from './pages/AboutPage/About'
 import Project from './pages/Projects/Project'
 import Login from './pages/Profile/Login'
@@ -22,6 +23,7 @@ function App() {
         </Route>
         <Route element={<WithNav />}>
           <Route path='/' element={<Home />} />
+          <Route path='project-details' element={<ProjectDetails />} />
           <Route path='/about' element={<About />} />
 
           <Route path='/project' element={<ProtectedRoute><Project /></ProtectedRoute>}/>

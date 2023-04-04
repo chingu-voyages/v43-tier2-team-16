@@ -1,0 +1,23 @@
+
+.project-details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    height: calc(100dvh - 80px);
+    width: 100vw;
+}
+
+.image-container,
+.project-about{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.image-container{
+    align-items: center;
+}
+
+.project-about{
+    line-height: 3rem;
+}
