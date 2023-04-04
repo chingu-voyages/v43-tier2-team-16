@@ -111,7 +111,9 @@ function Home() {
    const displaySuggestions = () => suggestions.map( (suggestion, i) => 
       <div key={i} id={suggestion.id} className='suggestion' onClick={findProject}>
          {suggestion.projectName}
-         <img src={suggestion.photoURL} alt="" className="search-img"></img>
+        
+         <img src={suggestion.photoURL} alt="" className="search-img" />
+        
       </div>)
 
    const handlePageClick = event => {
@@ -144,6 +146,7 @@ function Home() {
             <div className="projects-inner-container">
                {generateProjects()}
             </div>
+          
          </div>
          <Pagination 
                objectsTotal={projects.length} 
