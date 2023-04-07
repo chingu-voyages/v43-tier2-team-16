@@ -12,8 +12,8 @@ function Nav() {
    //  console.log(currentUser);
 
    useEffect(() => {
-      document.body.classList.toggle('no-scroll', activeNav);
-   },[activeNav])
+      document.body.classList.toggle("no-scroll", activeNav);
+   }, [activeNav]);
 
    const handleNavMenu = () => {
       setActiveNav(!activeNav);
@@ -33,28 +33,34 @@ function Nav() {
                   <Link to="/">Exhib</Link>
                </p>
             </div>
-            <button className="menu-burger d-block d-lg-none m-0 ml-auto btn-trans" onClick={handleNavMenu}>
+            <button
+               className="menu-burger d-block d-lg-none m-0 ml-auto btn-trans"
+               onClick={handleNavMenu}
+            >
                <span></span>
                <span></span>
                <span></span>
             </button>
             <ul className="nav-menu d-flex align-items-center justify-content-center flex-column flex-lg-row">
-               <li className="link">
+               <li className="link" onClick={handleNavMenu}>
                   <Link to="/">Home</Link>
                </li>
-               <li className="link">
+               <li className="link" onClick={handleNavMenu}>
                   <Link to="/about">About</Link>
                </li>
-               <li className="link">
+               <li className="link" onClick={handleNavMenu}>
                   <Link to={currentUser ? "/profile" : "/login"}>
                      Add Project
                   </Link>
                </li>
                {currentUser && (
                   <li className="link">
-                        <button className="btn btn-secondary" onClick={signUserOut}>
-                           Log Out
-                        </button>
+                     <button
+                        className="btn btn-secondary"
+                        onClick={signUserOut}
+                     >
+                        Log Out
+                     </button>
                   </li>
                )}
             </ul>
