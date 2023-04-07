@@ -1,125 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 
-*{
-    box-sizing: border-box;
+* {
+   box-sizing: border-box;
 }
 
-.home{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.home {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
-.title{
-    text-align: center;
-    font-family: 'Fredoka One', cursive;
-    padding: 1rem;
-    font-weight: 200;
-    margin-top: 3rem;
+.title {
+   text-align: center;
+   font-family: "Fredoka One", cursive;
+   padding: 1rem;
+   font-weight: 200;
+   margin-top: 3rem;
 }
 
-.projects-outer-container{
-    position: relative;
-    width: 100vw;
+.projects-outer-container {
+   /* position: relative; */
+   width: 100vw;
 }
 
-.project{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90vw;
-    margin: 0 auto 3rem auto;
-    border: 1px solid lightgray;
-    padding: 1rem;
+.project {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 90vw;
+   margin: 0 auto 3rem auto;
+   border: 1px solid lightgray;
+   padding: 1rem;
 }
 
-.project:hover{
-    cursor: pointer;
-    box-shadow: 0px 0px 2px 3px lightgrey;
-    -webkit-box-shadow: 0px 0px 2px 3px lightgray;
-    -moz-box-shadow: 0px 0px 2px 3px lightgray;
+.project:hover {
+   cursor: pointer;
+   box-shadow: 0px 0px 2px 3px lightgrey;
+   -webkit-box-shadow: 0px 0px 2px 3px lightgray;
+   -moz-box-shadow: 0px 0px 2px 3px lightgray;
 }
 
-.project-image{
-    width: calc(90vw - 32px);
-    height: calc((90vw - 32px)/1.35);
+.project-image {
+   width: calc(90vw - 32px);
+   height: calc((90vw - 32px) / 1.35);
 }
 
-.pagination{
-    display: flex;
-    margin: 1rem 0;
-    border: none;
-    font-size: .8rem;
+.pagination {
+   display: flex;
+   margin: 1rem 0;
+   border: none;
+   font-size: 0.8rem;
 }
 
-.suggestions{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30vw;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 1px solid lightgrey;
-    background-color: white;
+.suggestions {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 30vw;
+   top: -20px;
+   left: 50%;
+   transform: translateX(-50%);
+   border: 1px solid lightgrey;
+   background-color: white;
 }
 
-.hidden{
-    display: none;
+.hidden {
+   display: none;
 }
 
-.searchbar{
-    margin: 0 0 3rem 0;
-    border: 1px lightgray solid;
-    font-size: 1.2rem;
-    padding: .5rem;
-    text-align: center;
+.searchbar {
+   margin: 0 0 3rem 0;
+   border: 1px lightgray solid;
+   font-size: 1.2rem;
+   padding: 0.5rem;
+   text-align: center;
 }
 
-.suggestion{
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.2rem;
-    padding: 1rem;
-    cursor: pointer;
+.suggestion {
+   width: 90%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   font-size: 1.2rem;
+   padding: 1rem;
+   cursor: pointer;
 }
 
-.search-img{
-    width: 40px;
-    height: 25px;
+.search-img {
+   width: 40px;
+   height: 25px;
 }
 
-h4{
-    margin-top: 1.5rem;
+h4 {
+   margin-top: 1.5rem;
 }
 
+@media (min-width: 750px) {
+   .projects-inner-container {
+      width: 100vw;
+      height: fit-content;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+   }
 
-@media (min-width: 750px){
+   .project {
+      width: 35vw;
+   }
 
-    .projects-inner-container{
-        width: 100vw;
-        height: fit-content;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
+   .pagination {
+      font-size: 1rem;
+   }
 
-    .project{
-        width: 35vw;
-    }
-    
-
-    .pagination{
-        font-size: 1rem;
-    }
-
-    .project-image{
-        width: calc(35vw - 32px);
-        height: calc((35vw - 32px)/1.35);
-        max-height: 300px;
-    }
-
+   .project-image {
+      width: calc(35vw - 32px);
+      height: calc((35vw - 32px) / 1.35);
+      max-height: 300px;
+   }
 }
