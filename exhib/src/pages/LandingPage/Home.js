@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react';
 import classes from '../LandingPage/home_module.css';
 import './home_module.css';
+import Rating from './components/Rating';
 import Pagination from './components/Pagination';
 import { collection, onSnapshot } from '@firebase/firestore';
 import { db } from '../../firebase-config';
@@ -35,6 +36,7 @@ function Home() {
           <Link to='project-details' state={{...project}} key={index} className="project" id={project.id + "1"}>
               <img src={project.photoURL} alt="" className='project-image'></img>
               <h4>{project.projectName}</h4>
+              <Rating rating={project.rating ? project.rating : 0} />
           </Link>
         ));
   }
