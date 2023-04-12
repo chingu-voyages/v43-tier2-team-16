@@ -13,7 +13,7 @@ function About() {
       <section className="row mt-5">
         <div className="col-12 col-lg-6 d-flex flex-column justify-content-lg-center">
           <h2 className="mb-0 mb-lg-3">Share your Projects</h2>
-          <p className="my-3 my-lg-0">Exhib is the perfect platform for developers to share their projects with a global audience. By uploading your projects, you can showcase your skills and creativity to the world, and gain exposure for your work. Our user-friendly upload interface makes it easy for you to share your projects in a matter of minutes. Simply provide a description of your project, upload any relevant files or images, and hit "Upload Project". Once your project is live on the site, visitors can view it and provide valuable feedback.</p>
+          <p className="my-3 my-lg-0">Exhib is a perfect platform for developers to share their projects with a global audience. By uploading your projects, you can showcase your skills and creativity to the world, and gain exposure for your work. Our user-friendly upload interface makes it easy for you to share your projects in a matter of minutes. Fill out the fields in the Add Project Page, upload a featured image, and hit "Upload Project". Once your project is uploaded on the site, visitors can view it and provide valuable feedback.</p>
         </div>
         <div className="col-12 col-lg-6">
           <div className="round-img-wrapper">
@@ -34,7 +34,7 @@ function About() {
         </div>
       </section>
 
-      <section className="row mt-5">
+      <section className="row my-5">
         <div className="col-12 col-lg-6 d-flex flex-column justify-content-lg-center">
           <h2 className="mb-0 mb-lg-3">Get Noticed</h2>
           <p className="my-3 my-lg-0">With so many projects being uploaded on the web daily, it can be hard to get noticed. But at Exhib, we help you stand out from the crowd. Our gallery-like project showcase, promotes your work making it easier and more accessible for anyone to view them.</p>
