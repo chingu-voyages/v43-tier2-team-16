@@ -33,7 +33,7 @@ function Home() {
         ) 
         
         return currentProjects.map((project, index) => (
-          <Link to='project-details' state={{...project}} key={index} className="project" id={project.id + "1"}>
+          <Link to='project-details' state={{...project}} key={index} className="project w-100 mb-5 mb-md-0" id={project.id + "1"}>
               <img src={project.photoURL} alt="" className='project-image'></img>
               <h4>{project.projectName}</h4>
               <Rating rating={project.rating ? project.rating : 0} />
@@ -114,10 +114,12 @@ function Home() {
   }, [search]);
 
   const displaySuggestions = () => suggestions.map( (suggestion, i) => 
-      <div key={i} id={suggestion.id} className='suggestion' onClick={findProject}>
-        {suggestion.projectName}
-        <img src={suggestion.photoURL} alt="" className="search-img"></img>
-      </div>)
+  <Link to='project-details' state={{...suggestion}} key={i} className="project w-100 mb-5 mb-md-0" id={i + "1"}>
+    <div key={i} id={suggestion.id} className='suggestion' onClick={findProject}>
+      {suggestion.projectName}
+      <img src={suggestion.photoURL} alt="" className="search-img"></img>
+    </div>
+  </Link>)
 
   const handlePageClick = event => {
       const newCurrentPage = event.selected + 1;
@@ -131,8 +133,10 @@ function Home() {
   }
 
   return (
-      <div className='home'>
-        <h2 className='title'>Projects gallery</h2>
+      <div className='home container mx-auto'>
+        <div>
+          <h1 className="text-center pt-5 mb-4">Projects Gallery</h1>
+        </div>
         <input 
             type="text" 
             className="searchbar"
