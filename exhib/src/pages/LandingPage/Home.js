@@ -1,5 +1,4 @@
 import {React, useState, useEffect} from 'react';
-import classes from '../LandingPage/home_module.css';
 import './home_module.css';
 import Rating from './components/Rating';
 import Pagination from './components/Pagination';
@@ -18,7 +17,6 @@ function Home() {
   const [search, setSearch] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [idToFind, setIdToFind] = useState("");
 
   const { setUsersData } = useAuthContext()
 
@@ -33,7 +31,7 @@ function Home() {
         ) 
         
         return currentProjects.map((project, index) => (
-          <Link to='project-details' state={{...project}} key={index} className="project w-100 mb-5 mb-md-0" id={project.id + "1"}>
+          <Link to='project-details' state={{...project}} key={index} className="project w-100 mb-5 mb-md-0">
               <img src={project.photoURL} alt="" className='project-image'></img>
               <h4>{project.projectName}</h4>
               <Rating rating={project.rating ? project.rating : 0} />
@@ -41,31 +39,6 @@ function Home() {
         ));
   }
 
-  const findProject = (e) => {
-
-      let projectIndex = 0;
-
-      projects.forEach( (project, index) => {
-        if(project.id === e.target.id){
-            projectIndex = index;
-        };
-      });
-
-      setCurrentPage(Math.ceil((projectIndex + 1)/objectsPerPage));
-      setIdToFind(`${e.target.id + "1"}`)
-  }
-
-  useEffect(() => {
-
-      const elementToFind = document.getElementById(idToFind)
-      
-      if(elementToFind){
-        elementToFind.scrollIntoView({ behavior: 'smooth', block: "center", inline: "center"});
-      };
-
-      setIdToFind("")
-
-  }, [idToFind])
 
   useEffect(() => {
       const getProjects = () => {
@@ -114,12 +87,13 @@ function Home() {
   }, [search]);
 
   const displaySuggestions = () => suggestions.map( (suggestion, i) => 
-  <Link to='project-details' state={{...suggestion}} key={i} className="project w-100 mb-5 mb-md-0" id={i + "1"}>
-    <div key={i} id={suggestion.id} className='suggestion' onClick={findProject}>
-      {suggestion.projectName}
-      <img src={suggestion.photoURL} alt="" className="search-img"></img>
-    </div>
-  </Link>)
+    <Link to='project-details' state={{...suggestion}} key={i} className="project w-100 mb-5 mb-md-0">
+      <div className='suggestion'>
+        {suggestion.projectName}
+        <img src={suggestion.photoURL} alt="" className="search-img"></img>
+      </div>
+    </Link>
+  )
 
   const handlePageClick = event => {
       const newCurrentPage = event.selected + 1;
