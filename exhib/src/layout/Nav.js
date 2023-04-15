@@ -16,7 +16,9 @@ function Nav() {
    }, [activeNav]);
 
    const handleNavMenu = () => {
-      setActiveNav(!activeNav);
+      if (window.innerWidth < 992) { 
+         setActiveNav(!activeNav);
+      }
    };
 
    const signUserOut = () => {
