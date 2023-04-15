@@ -38,6 +38,6 @@ Exhib is a project based platform where various developers showcase thier person
 # Acknowledgement
 
 1. [PreyeO](https://github.com/PreyeO)
-2. [PreyeO](https://github.com/PreyeO)
+2. [Stephpp](https://github.com/Stephpp)
 3. [PreyeO](https://github.com/PreyeO)
 4. [PreyeO](https://github.com/PreyeO)
