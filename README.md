@@ -35,9 +35,10 @@ Exhib is a project based platform where various developers showcase thier person
 
 [Exhib](https://exhib.netlify.app/)
 
-# Acknowledgement
+# Authors
 
 1. [PreyeO](https://github.com/PreyeO)
-2. [Stephpp](https://github.com/Stephpp)
-3. [PreyeO](https://github.com/PreyeO)
-4. [PreyeO](https://github.com/PreyeO)
+2. [jibreel1](https://github.com/jibreel1)
+4. [V-brzi](https://github.com/V-brzi)
+3. [Stephpp](https://github.com/Stephpp)
+4. [CursedAFK](https://github.com/CursedAFK)
