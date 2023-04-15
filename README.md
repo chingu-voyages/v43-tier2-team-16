@@ -2,7 +2,7 @@
 
 # Overview
 
-Exhib is a project based platform where various developers showcase thier personal projects to the world and also get inspired by other projects on the platform.
+Exhib is a platform where various developers showcase thier personal projects to the world and also get inspired by other projects on the platform.
 
 # Features
 
