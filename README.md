@@ -35,3 +35,6 @@ Exhib is a project based platform where various developers showcase thier person
 
 [https://exhib.netlify.app](https://exhib.netlify.app/)
 
+# Acknowledgement
+
+1. [https://github.com/PreyeO](https://github.com/PreyeO)
