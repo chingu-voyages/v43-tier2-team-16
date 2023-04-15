@@ -1,10 +1,10 @@
 # Exhib
 
-#Overview
+# Overview
 
 Exhib is a project based platform where various developers showcase thier personal projects to the world and also get inspired by other projects on the platform.
 
-#Features
+# Features
 
 1. Display Page: This is the landing page where all the projects are being displayed.
 2. Search Bar: Users can search for projects based on the titles.
@@ -15,14 +15,14 @@ Exhib is a project based platform where various developers showcase thier person
 7. Project Page: When a project is clicked on it routes to this page where users can see full description.
 8. About: This page gives users more information about the platform.
 
-#Running The Project
+# Running The Project
 
 1. Clone this project locally.
 2. Run npm install in your bash/command line.
 3. Run npm run dev in your bash/command line.
 4. Now Browse through and upload a project
 
-#Dev Dependencies
+# Dev Dependencies
 
 1. React
 2. Firebase
@@ -31,7 +31,7 @@ Exhib is a project based platform where various developers showcase thier person
 5. React-Dom
 6. Bootstrap
 
-#Link To Live App
+# Link To Live App
 
-exhib.netlify.app
+[https://exhib.netlify.app](https://exhib.netlify.app/)
 
