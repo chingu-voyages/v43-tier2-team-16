@@ -33,8 +33,11 @@ Exhib is a project based platform where various developers showcase thier person
 
 # Link To Live App
 
-[https://exhib.netlify.app](https://exhib.netlify.app/)
+[Exhib](https://exhib.netlify.app/)
 
 # Acknowledgement
 
 1. [PreyeO](https://github.com/PreyeO)
+2. [PreyeO](https://github.com/PreyeO)
+3. [PreyeO](https://github.com/PreyeO)
+4. [PreyeO](https://github.com/PreyeO)
