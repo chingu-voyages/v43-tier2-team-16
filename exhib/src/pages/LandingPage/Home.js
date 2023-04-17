@@ -87,11 +87,9 @@ function Home() {
   }, [search]);
 
   const displaySuggestions = () => suggestions.map( (suggestion, i) => 
-    <Link to='project-details' state={{...suggestion}} key={i} className="project w-100 mb-5 mb-md-0">
-      <div className='suggestion'>
+    <Link to='project-details' state={{...suggestion}} key={i} className="suggestion">
         {suggestion.projectName}
         <img src={suggestion.photoURL} alt="" className="search-img"></img>
-      </div>
     </Link>
   )
 

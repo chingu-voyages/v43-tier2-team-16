@@ -19,7 +19,7 @@
 }
 
 .projects-outer-container{
-    position: relative;
+   position: relative;
 }
 
 .project {
@@ -30,8 +30,10 @@
    padding: 1rem;
 }
 
-.project:hover {
+.project:hover,
+.suggestion:hover {
    cursor: pointer;
+   color: inherit;
    box-shadow: 0px 0px 2px 3px lightgrey;
    -webkit-box-shadow: 0px 0px 2px 3px lightgray;
    -moz-box-shadow: 0px 0px 2px 3px lightgray;
@@ -45,10 +47,10 @@
 }
 
 .pagination{
-    display: flex;
-    margin: 1rem 0;
-    border: none;
-    font-size: .8rem;
+   display: flex;
+   margin: 1rem 0;
+   border: none;
+   font-size: .8rem;
 }
 
 .suggestions {
@@ -56,7 +58,7 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   width: 30vw;
+   width: 80vw;
    top: -20px;
    left: 50%;
    transform: translateX(-50%);
@@ -77,7 +79,7 @@
 }
 
 .suggestion {
-   width: 90%;
+   width: 100%;
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -87,25 +89,38 @@
 }
 
 .search-img {
-   width: 40px;
+   width: 45px;
    height: 25px;
 }
 
 h4{
-    margin-top: 1.5rem;
+   margin-top: 1.5rem;
 }
 
 
 @media (min-width: 750px){
 
-    .projects-inner-container{
-        height: fit-content;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
+   .projects-inner-container{
+      height: fit-content;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+   }
 
    .pagination {
       font-size: 1rem;
+   }
+
+}
+
+@media (min-width: 640px) and  (max-width:900px){
+   .suggestions{
+      width: 60vw;
+   }
+}
+
+@media (min-width: 900px){
+   .suggestions{
+      width: 30vw;
    }
 }
