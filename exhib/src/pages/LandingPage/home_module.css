@@ -41,9 +41,8 @@
 
 .project-image {
    width: 100%;
-   height: 100%;
    object-fit: cover;
-   max-height: 300px;
+   max-height: 250px;
 }
 
 .pagination{
@@ -125,4 +124,9 @@ h4{
    .suggestions{
       width: 30vw;
    }
+   
+   .project-image {
+      max-height: 300px;
+   }
+
 }
